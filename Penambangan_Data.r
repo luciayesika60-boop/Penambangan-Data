@@ -7,3 +7,10 @@ dim(data)
 str(data)
 #Melihat ringkasan statistik dari dataset
 summary(data)
+#Mengecek missing value
+colSums(is.na(data))
+#Mengecek duplikat data
+sum(duplicated(data))
+#Mengecek konsistensi data
+unique(data$Jenis.Produk)
+
