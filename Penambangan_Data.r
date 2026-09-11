@@ -11,6 +11,3 @@ summary(data)
 colSums(is.na(data))
 #Mengecek duplikat data
 sum(duplicated(data))
-#Mengecek konsistensi data
-unique(data$Jenis.Produk)
-
