@@ -1,5 +1,5 @@
 #Membaca dataset
-data <- read.csv("data_penjualan (1).csv")
+data <- read.csv("penjualan_tiket_pesawat (1).csv")
 print(data)
 #Melihat jumlah baris dan kolom
 dim(data)
