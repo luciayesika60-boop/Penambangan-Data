@@ -34,3 +34,14 @@ barplot(table(data$City),
         xlab = "Kota",
         ylab = "Jumlah Transaksi",
         main = "Jumlah Transaksi Berdasarkan Kota")
+
+#Maskapai yang paling diminati
+ Airline <- sort(table(data$Airline), decreasing = TRUE)
+barplot(
+    head(Airline, 10),
+    main = "Maskapai yang paling diminati",
+    xlab = "Airline",
+    ylab = "Jumlah"
+)
+
+#Analisis hubungan dua variabel (City dan Airline) 
