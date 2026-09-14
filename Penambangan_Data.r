@@ -113,3 +113,12 @@ text(
   cex = 0.8,
   font = 2
 )
+
+# Outlier Total harga
+boxplot(
+  data$Total,
+  main = "Distribution Variabel Total",
+  ylab = "Total",
+ col = "steelblue"
+)
+
