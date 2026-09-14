@@ -63,3 +63,53 @@ text(x = bp, y = frekuensi,
      cex = 1.2,      # ukuran huruf
      col = "black",  # warna huruf
      font = 2)       # bold
+
+
+#Maskapai yang paling banyak diminati 
+frekuensi <- table(data$Airline)
+
+# Bar chart + simpan posisi bar
+bp <- barplot(
+  frekuensi,
+  col = c("skyblue", "orange", "lightgreen"),
+  border = "white",
+  xlab = "Maskapai",
+  ylab = "Jumlah Transaksi",
+  main = "Maskapai yang Paling Diminati",
+  ylim = c(0, max(frekuensi) * 1.15)
+)
+
+# Tambah angka di atas tiap bar
+text(
+  x = bp,
+  y = frekuensi,
+  label = frekuensi,
+  pos = 3,
+  cex = 1.2,
+  col = "black",
+  font = 2
+)
+
+#Analisis hubungan dua variabel (City dan Airline)
+frekuensi <- table(data$Airline, data$City)
+
+bp <- barplot(
+  frekuensi,
+  beside = TRUE,
+  col = c("skyblue", "orange", "lightgreen"),
+  border = "white",
+  xlab = "Kota",
+  ylab = "Jumlah Transaksi",
+  main = "Hubungan Kota dan Maskapai",
+  ylim = c(0, max(frekuensi) * 1.15),
+  legend.text = rownames(frekuensi)
+)
+
+text(
+  x = bp,
+  y = as.vector(frekuensi),
+  labels = as.vector(frekuensi),
+  pos = 3,
+  cex = 0.8,
+  font = 2
+)
