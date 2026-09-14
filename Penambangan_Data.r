@@ -23,25 +23,43 @@ sd(data$Ticket_Price)
 sd(data$Ticket_Quantity) 
 sd(data$Transaction_ID)  
 
-hist(data$Total,
-     xlab = "Total",
-     ylab = "Frequency",
-     main = "Distribution of Total")
+###Distribusi Data Numerik
+# Hitung frekuensi
+frekuensi <- table(data$Ticket_Quantity)
 
-barplot(table(data$City),
-        col = c("steelblue", "salmon", "lightgreen"),
-        border = "white",
-        xlab = "Kota",
-        ylab = "Jumlah Transaksi",
-        main = "Jumlah Transaksi Berdasarkan Kota")
+# Bar chart + simpan posisi bar
+bp <- barplot(frekuensi,
+              col = "steelblue",
+              border = "white",
+              xlab = "Jumlah Tiket",
+              ylab = "Frekuensi",
+              main = "Distribusi Jumlah Tiket per Transaksi",
+              ylim = c(0, max(frekuensi) * 1.15))   # beri ruang di atas
 
-#Maskapai yang paling diminati
- Airline <- sort(table(data$Airline), decreasing = TRUE)
-barplot(
-    head(Airline, 10),
-    main = "Maskapai yang paling diminati",
-    xlab = "Airline",
-    ylab = "Jumlah"
-)
+# Tambah angka di atas tiap bar
+text(x = bp, y = frekuensi,
+     label = frekuensi,
+     pos = 3,        # posisi di atas bar
+     cex = 1.2,      # ukuran huruf
+     font = 2)       # bold
 
-#Analisis hubungan dua variabel (City dan Airline) 
+###Distribusi Kategori
+# Hitung frekuensi
+frekuensi <- table(data$City)
+
+# Bar chart + simpan posisi bar
+bp <- barplot(frekuensi,
+              col = "steelblue",
+              border = "white",
+              xlab = "Kota",
+              ylab = "Jumlah Transaksi",
+              main = "Jumlah Transaksi per Kota",
+              ylim = c(0, max(frekuensi) * 1.15))   # beri ruang di atas
+
+# Tambah angka di atas tiap bar
+text(x = bp, y = frekuensi,
+     label = frekuensi,
+     pos = 3,        # posisi di atas bar
+     cex = 1.2,      # ukuran huruf
+     col = "black",  # warna huruf
+     font = 2)       # bold
